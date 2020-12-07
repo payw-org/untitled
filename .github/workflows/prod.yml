@@ -19,6 +19,8 @@ jobs:
           script: |
             cd prod
             git reset --hard
+            git checkout main
+            git fetch
             git pull
             export NVM_DIR=~/.nvm
             source ~/.nvm/nvm.sh
