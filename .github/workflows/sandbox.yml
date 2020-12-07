@@ -21,6 +21,7 @@ jobs:
           script: |
             cd sandbox
             git reset --hard
+            git checkout sandbox
             git pull
             export NVM_DIR=~/.nvm
             source ~/.nvm/nvm.sh
