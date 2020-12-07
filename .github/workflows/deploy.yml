@@ -17,7 +17,7 @@ jobs:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USER }}
           script: |
-            cd ~/payw-org/where.land/
+            git reset --hard
             git pull
             export NVM_DIR=~/.nvm
             source ~/.nvm/nvm.sh
