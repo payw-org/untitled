@@ -24,4 +24,4 @@ jobs:
             git pull
             export NVM_DIR=~/.nvm
             source ~/.nvm/nvm.sh
-            npm run pm2:reboot
+            npm run pm2:reboot:sandbox
