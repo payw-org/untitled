@@ -1,0 +1,25 @@
+name: deploy-prod
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  SSH:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Run scripts in server
+        uses: appleboy/ssh-action@master
+        with:
+          key: ${{ secrets.SSH_KEY }}
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USER }}
+          script: |
+            cd prod
+            git reset --hard
+            git pull
+            export NVM_DIR=~/.nvm
+            source ~/.nvm/nvm.sh
+            npm run pm2:reboot

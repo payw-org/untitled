@@ -7,11 +7,17 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start --port 3050",
+    "start:sandbox": "next start --port 3060",
     "pm2:start": "pm2 start npm --name 'untitiled' -- run start",
     "pm2:restart": "if pm2 show untitiled ; then pm2 restart untitiled ; else echo 'No pm2 instance for untitiled' ; fi",
     "pm2:stop": "if pm2 show untitiled ; then pm2 stop untitiled ; else echo 'No pm2 instance for untitiled' ; fi",
     "pm2:delete": "if pm2 show untitiled ; then pm2 delete untitiled ; else echo 'No pm2 instance for untitiled' ; fi",
-    "pm2:reboot": "npm ci && npm run build && npm run pm2:stop && npm run pm2:delete && npm run pm2:start"
+    "pm2:reboot": "npm ci && npm run build && npm run pm2:stop && npm run pm2:delete && npm run pm2:start",
+    "pm2:start:sandbox": "pm2 start npm --name 'untitiled-sandbox' -- run start:sandbox",
+    "pm2:restart:sandbox": "if pm2 show untitiled-sandbox ; then pm2 restart untitiled-sandbox ; else echo 'No pm2 instance for untitiled-sandbox' ; fi",
+    "pm2:stop:sandbox": "if pm2 show untitiled-sandbox ; then pm2 stop untitiled-sandbox ; else echo 'No pm2 instance for untitiled-sandbox' ; fi",
+    "pm2:delete:sandbox": "if pm2 show untitiled-sandbox ; then pm2 delete untitiled-sandbox ; else echo 'No pm2 instance for untitiled-sandbox' ; fi",
+    "pm2:reboot:sandbox": "npm ci && npm run build && npm run pm2:stop:sandbox && npm run pm2:delete:sandbox && npm run pm2:start:sandbox"
   },
   "dependencies": {
     "next": "10.0.3",

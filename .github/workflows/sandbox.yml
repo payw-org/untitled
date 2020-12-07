@@ -1,8 +1,10 @@
-name: Deploy
+name: deploy-sandbox
 
 on:
-  release:
-    types: [published]
+  push:
+    branches:
+      - sandbox
+
 
 jobs:
   SSH:
@@ -17,6 +19,7 @@ jobs:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USER }}
           script: |
+            cd sandbox
             git reset --hard
             git pull
             export NVM_DIR=~/.nvm
